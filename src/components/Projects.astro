@@ -1,0 +1,213 @@
+---
+const ongoingProjects = [
+  {
+    client: "WELSPUN STEELS LIMITED (ANJAR, GUJARAT)",
+    projects: [
+      "Electrical and instrumentation work for 1.5 MW TRT",
+      "Electrical and instrumentation work for ductile pipe plant 1.35 MT(yearly) phase-2",
+      "Electrical and instrumentation work for coke dry project"
+    ]
+  },
+  {
+    client: "JAIRAJ ISPAT, KARNOOL",
+    projects: [
+      "Electrical and instrumentation work for 18T/hr PCI MILL",
+      "Electrical and instrumentation work for sinter plant",
+      "Electrical and instrumentation work for cast house and stock house dedusting"
+    ]
+  },
+  {
+    client: "ELECTRO STEEL LIMITED (BOKARO) ESL STEEL",
+    projects: [
+      "Electrical and instrumentation work for blast furnace (1260)"
+    ]
+  },
+  {
+    client: "VEDANTA LIMITED (GOA)",
+    projects: [
+      "Electrical and instrumentation work for Blower Expansion Project",
+      "Electrical and instrumentation work for Coke Drying System",
+      "Electrical and Instrumentation works for New 2 No's of SILO for Gas Cleaning Plant"
+    ]
+  }
+];
+
+const completedProjects = [
+  {
+    client: "VEDANTA LIMITED (GOA)",
+    projects: [
+      "11KV Electrical and instrumentation work for blast furnace upgradation project (2&3) Revamping (shutdown)",
+      "Electrical and Instrumentation works for GCP SILO Expansion project",
+      "Electrical and Instrumentation works for oxygen plant upgradation",
+      "Electrical and instrumentation work for coke oven battery 1 & 2"
+    ]
+  },
+  {
+    client: "ELECTRO STEEL LIMITED (BOKARO) ESL STEEL",
+    projects: [
+      "11KV Electrical and instrumentation work for blast furnace (2&3) Revamping (shutdown)",
+      "Electrical and Instrumentation works for GCP SILO Expansion project"
+    ]
+  },
+  {
+    client: "JAIRAJ ISPAT, KARNOOL",
+    projects: [
+      "11KV Electrical and instrumentation work for 650 M3 blast furnace",
+      "Electrical and instrumentation work for Turbo blower"
+    ]
+  },
+  {
+    client: "ARJAS STEEL LIMITED, THADAPATHRI, ANDRAPRADESH",
+    projects: [
+      "11KV Electrical and instrumentation work for blast furnace with BLT 350 T0 380 Revamping (shutdown)"
+    ]
+  },
+  {
+    client: "MOPA INTERNATIONAL AIRPORT (GMR GROUP)",
+    projects: [
+      "Electrical and EPABX System Installation",
+      "Buildings and Quarters for Rehabilitation Electrical Project"
+    ]
+  },
+  {
+    client: "WELSPUN STEELS LIMITED (ANJAR, GUJARAT)",
+    projects: [
+      "Electrical and Instrumentation work for 1200TPD 380M3 Blast Furnace",
+      "11KV Electrical and Instrumentation work for 0.62MTPA (70M2) Sinter plant",
+      "Electrical and Instrumentation work for 18T/hr capacity PCI MILL",
+      "Electrical and Instrumentation work for 200TPD Oxygen plant",
+      "Electrical and Instrumentation work for 2x3.5 MW Turbo blower",
+      "Electrical and Instrumentation work for iron ore conveyor screening System",
+      "Electrical and Instrumentation work for plant dedusting system",
+      "Electrical Instrumentation work for EOT CRANE",
+      "Electrical and instrumentation work for ductile pipe plant 3.65 MT(yearly) phase-1"
+    ]
+  }
+];
+---
+
+<section class="py-20 bg-white" id="projects">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary-600 mb-4 font-display">Our Projects</h2>
+      <div class="w-20 h-1 bg-accent-500 mx-auto mb-8"></div>
+      <p class="text-lg text-gray-600">
+        With a proven track record of successful implementations, we've helped numerous clients 
+        achieve their infrastructure and engineering goals.
+      </p>
+    </div>
+    
+    <!-- Project Tabs -->
+    <div class="mb-12">
+      <div class="flex flex-wrap border-b border-gray-200">
+        <button 
+          class="py-3 px-6 font-medium text-primary-600 border-b-2 border-accent-500 bg-gray-50 focus:outline-none" 
+          id="tab-ongoing"
+        >
+          Ongoing Projects
+        </button>
+        <button 
+          class="py-3 px-6 font-medium text-gray-500 hover:text-primary-600 focus:outline-none" 
+          id="tab-completed"
+        >
+          Completed Projects
+        </button>
+      </div>
+    </div>
+    
+    <!-- Ongoing Projects (Default Active) -->
+    <div id="content-ongoing" class="transition-all duration-300">
+      {ongoingProjects.map((client, index) => (
+        <div 
+          class="mb-8 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="bg-primary-50 px-6 py-4 border-l-4 border-accent-500">
+            <h3 class="text-xl font-bold text-primary-600 font-display">{client.client}</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              {client.projects.map(project => (
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-accent-500 mr-2 mt-0.5 flex-shrink-0">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  </svg>
+                  <span class="text-gray-700">{project}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Completed Projects (Initially Hidden) -->
+    <div id="content-completed" class="hidden transition-all duration-300">
+      {completedProjects.map((client, index) => (
+        <div 
+          class="mb-8 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="bg-primary-50 px-6 py-4 border-l-4 border-green-500">
+            <h3 class="text-xl font-bold text-primary-600 font-display">{client.client}</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              {client.projects.map(project => (
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-gray-700">{project}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabOngoing = document.getElementById('tab-ongoing');
+    const tabCompleted = document.getElementById('tab-completed');
+    const contentOngoing = document.getElementById('content-ongoing');
+    const contentCompleted = document.getElementById('content-completed');
+    
+    tabOngoing.addEventListener('click', () => {
+      // Update tabs
+      tabOngoing.classList.add('border-b-2', 'border-accent-500', 'text-primary-600', 'bg-gray-50');
+      tabOngoing.classList.remove('text-gray-500');
+      
+      tabCompleted.classList.remove('border-b-2', 'border-accent-500', 'text-primary-600', 'bg-gray-50');
+      tabCompleted.classList.add('text-gray-500');
+      
+      // Show/hide content
+      contentOngoing.classList.remove('hidden');
+      contentCompleted.classList.add('hidden');
+      
+      // Refresh AOS animations
+      AOS.refresh();
+    });
+    
+    tabCompleted.addEventListener('click', () => {
+      // Update tabs
+      tabCompleted.classList.add('border-b-2', 'border-accent-500', 'text-primary-600', 'bg-gray-50');
+      tabCompleted.classList.remove('text-gray-500');
+      
+      tabOngoing.classList.remove('border-b-2', 'border-accent-500', 'text-primary-600', 'bg-gray-50');
+      tabOngoing.classList.add('text-gray-500');
+      
+      // Show/hide content
+      contentCompleted.classList.remove('hidden');
+      contentOngoing.classList.add('hidden');
+      
+      // Refresh AOS animations
+      AOS.refresh();
+    });
+  });
+</script>

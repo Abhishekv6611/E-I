@@ -1,0 +1,101 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "E&I Engineers - Empowering Industries with Electrical & Instrumentation Expertise" 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script is:inline src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  </head>
+  <body class="font-sans text-gray-800 bg-gray-50">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      window.addEventListener('load', () => {
+        AOS.init({
+          duration: 800,
+          once: false,
+          offset: 50,
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 5rem 2rem;
+    }
+  }
+  
+  .section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #FF9F1C;
+    border-radius: 2px;
+  }
+</style>

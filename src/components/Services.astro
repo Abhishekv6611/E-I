@@ -1,0 +1,107 @@
+---
+const services = [
+  {
+    title: "Installation, Testing & Commissioning",
+    description: "We specialize in the installation, testing, loop-checking, and commissioning of instruments and equipment in industrial settings, ensuring proper functioning and accuracy.",
+    items: [
+      "Pressure Transmitter",
+      "Differential Pressure Transmitter and Impulse Line",
+      "Flow Transmitter (All Types)",
+      "Temperature Element and Transmitter",
+      "Control Valve (Pneumatic, Hydraulic, Motorized)",
+      "Dust Sensor and Gas Analyzer"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+    </svg>`
+  },
+  {
+    title: "Electrical Instrumentation",
+    description: "We provide electrical instrumentation for conveyor belt systems and related equipment, ensuring efficient and safe operation.",
+    items: [
+      "Transformer Installation",
+      "HT (High Tension) and LT (Low Tension) Panel Installation",
+      "Bus Duct Installation",
+      "Conveyor Belt Electrical Work",
+      "Instrumentation and Control Systems",
+      "Documentation and Compliance"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+    </svg>`
+  },
+  {
+    title: "Cable Laying & Cable Tray",
+    description: "We specialize in cable laying and cable tray erection work, essential components of electrical and data network infrastructure installations.",
+    items: [
+      "Site Assessment",
+      "Cable Selection",
+      "Cable Routing & Design and Layout",
+      "Cable Tray Installation",
+      "Cable Fixing",
+      "Testing and Documentation"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+    </svg>`
+  },
+  {
+    title: "Instrument Calibration",
+    description: "We provide crucial instrument calibration services to ensure measurement accuracy and reliability across various industries.",
+    items: [
+      "Pressure transducers and gauges",
+      "Temperature sensors and controllers",
+      "Flow meters and flow controllers",
+      "Voltage and current measurement devices",
+      "Analytical instruments (pH meters, spectrophotometers, etc.)"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+    </svg>`
+  }
+];
+---
+
+<section class="py-20 bg-gray-50" id="services">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary-600 mb-4 font-display">Our Services</h2>
+      <div class="w-20 h-1 bg-accent-500 mx-auto mb-8"></div>
+      <p class="text-lg text-gray-600">
+        We take pride in delivering a comprehensive range of services to meet the diverse needs of our clients.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class="bg-white rounded-lg shadow-service p-8 transition-transform hover:-translate-y-2 duration-300"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="flex flex-col h-full">
+            <div class="text-accent-500 mb-4" set:html={service.icon} />
+            
+            <h3 class="text-2xl font-bold text-primary-600 mb-4 font-display">{service.title}</h3>
+            
+            <p class="text-gray-700 mb-6 flex-grow">{service.description}</p>
+            
+            <div class="border-t border-gray-200 pt-4 mt-auto">
+              <h4 class="font-bold text-primary-500 mb-3">Key Features:</h4>
+              <ul class="space-y-2">
+                {service.items.map(item => (
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-accent-500 mr-2 mt-0.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
